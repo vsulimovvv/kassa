@@ -36,43 +36,27 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
   toggleAccordion('.accordion-control', '.accordion-content', '.accordion');
-  
-  //   // * ===== Slider
-  //   (function slider() {
-  //     const sliderEl = document.querySelector('.price-list-top__slider');
-  //     new Swiper(sliderEl, {
-  //       slidesPerView: 'auto',
-  //       centeredSlides: true,
-  //       slideToClickedSlide: true,
-  //       initialSlide: 4,
-  //       spaceBetween: 20,
-  //       navigation: {
-  //         nextEl: '.price-list-top__slider .swiper-button-next',
-  //         prevEl: '.price-list-top__slider .swiper-button-prev',
-  //       },
-  //     });
-  //   })();
 
   // * ===== Fixed Header
-  // (function fixedHeader() {
-  //   function scrollHeader() {
-  //     const nav = document.querySelector('header');
-  //     if (this.scrollY >= 50) {
-  //       nav.classList.add('scroll-header');
-  //     } else {
-  //       nav.classList.remove('scroll-header');
-  //     }
-  //   }
-  //   window.addEventListener('scroll', scrollHeader);
-  //   // ! Change
-  //   function changeBg() {
-  //     const header = document.querySelector('header');
-  //     if (window.pageYOffset >= 50) {
-  //       header.classList.add('scroll-header');
-  //     }
-  //   }
-  //   changeBg();
-  // })();
+  (function fixedHeader() {
+    function scrollHeader() {
+      const nav = document.querySelector('header');
+      if (this.scrollY >= 50) {
+        nav.classList.add('scroll-header');
+      } else {
+        nav.classList.remove('scroll-header');
+      }
+    }
+    window.addEventListener('scroll', scrollHeader);
+    // ! Change
+    function changeBg() {
+      const header = document.querySelector('header');
+      if (window.pageYOffset >= 50) {
+        header.classList.add('scroll-header');
+      }
+    }
+    changeBg();
+  })();
 
   // * ===== Show Menu
   (function showMenu() {

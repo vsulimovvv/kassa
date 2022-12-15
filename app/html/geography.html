@@ -11,7 +11,25 @@
     <div class="site-wrapper">
       @include('./components/_header.html')
 
-      <main class="main">
+      <main class="main mt">
+        <div class="container">
+          <div class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="index.html">Главная</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="about.html">О компании</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link breadcrumbs__link--active">
+                  География
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         @include('./components/_geography.html')
         @include('./components/_submit.html')
       </main>
