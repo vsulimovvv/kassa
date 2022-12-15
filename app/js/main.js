@@ -1,3 +1,9 @@
+(function cookies() {
+  if (sessionStorage.getItem('cookies')) {
+    document.querySelector('.popup--start').style.display = 'none';
+  }
+})();
+
 window.addEventListener('DOMContentLoaded', () => {
   // * ===== Mask input
   $('input[type="tel"]').mask('+7 (999) 999-99-99');
@@ -82,77 +88,76 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  //   // * ===== Modal
-  //   (function modals() {
-  //     function bindModal(openBtn, modal, close) {
-  //       const openBtnEl = document.querySelectorAll(openBtn);
-  //       const modalEl = document.querySelector(modal);
-  //       const closeEl = document.querySelectorAll(close);
-  //       const body = document.querySelector('body');
-  //       if (modalEl) {
-  //         openBtnEl.forEach((el) => {
-  //           el.addEventListener('click', (e) => {
-  //             if (e.target) {
-  //               e.preventDefault();
-  //             }
-  //             modalEl.classList.add('active');
-  //             body.classList.add('no-scroll');
-  //           });
-  //         });
-  //         closeEl.forEach((btn) => {
-  //           btn.addEventListener('click', (e) => {
-  //             modalEl.classList.remove('active');
-  //             body.classList.remove('no-scroll');
-  //           });
-  //         });
-  //         modalEl.addEventListener('click', (e) => {
-  //           if (e.target === modalEl) {
-  //             modalEl.classList.remove('active');
-  //             body.classList.remove('no-scroll');
-  //           }
-  //         });
-  //       }
-  //     }
-  //     bindModal('.online-booking-btn', '.popup--online-booking', '.popup__close');
-  //   })();
-  //   // * ===== Toggle Tabs
-  //   function someTabs(headerSelector, tabSelector, contentSelector, activeClass) {
-  //     const header = document.querySelectorAll(headerSelector);
-  //     const tab = document.querySelectorAll(tabSelector);
-  //     const content = document.querySelectorAll(contentSelector);
-  //     header.forEach((el) => {
-  //       if (el) {
-  //         hideTabContent();
-  //         showTabContent();
-  //         function hideTabContent() {
-  //           content.forEach((item) => {
-  //             item.classList.remove('active');
-  //           });
-  //           tab.forEach((item) => {
-  //             item.classList.remove(activeClass);
-  //           });
-  //         }
-  //         function showTabContent(i = 0) {
-  //           content[i].classList.add('active');
-  //           tab[i].classList.add(activeClass);
-  //         }
-  //         header.forEach((item) => {
-  //           if (item) {
-  //             item.addEventListener('click', (e) => {
-  //               const target = e.target;
-  //               if (target.classList.contains(tabSelector.replace(/\./, ''))) {
-  //                 tab.forEach((item, i) => {
-  //                   if (target == item || target.parentNode == item) {
-  //                     hideTabContent();
-  //                     showTabContent(i);
-  //                   }
-  //                 });
-  //               }
-  //             });
-  //           }
-  //         });
-  //       }
-  //     });
-  //   }
-  //   someTabs('.contacts', '.contacts-top__item', '.contacts__content', 'active');
+  // * ===== Modal
+  (function modals() {
+    function bindModal(openBtn, modal, close) {
+      const openBtnEl = document.querySelectorAll(openBtn);
+      const modalEl = document.querySelector(modal);
+      const closeEl = document.querySelectorAll(close);
+      const body = document.querySelector('body');
+
+      if (modalEl) {
+        openBtnEl.forEach((el) => {
+          el.addEventListener('click', (e) => {
+            if (e.target) {
+              e.preventDefault();
+            }
+            modalEl.classList.add('active');
+            body.classList.add('no-scroll');
+          });
+        });
+        closeEl.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            modalEl.classList.remove('active');
+            body.classList.remove('no-scroll');
+          });
+        });
+        modalEl.addEventListener('click', (e) => {
+          if (e.target === modalEl) {
+            modalEl.classList.remove('active');
+            body.classList.remove('no-scroll');
+          }
+        });
+      }
+    }
+    bindModal('.back-call-btn', '.popup--back-call', '.popup__close');
+  })();
+
+  (function modalStart() {
+    function bindModal(modal, close, links) {
+      const modalEl = document.querySelector(modal);
+      const closeEl = document.querySelectorAll(close);
+      const linksEl = document.querySelectorAll(links);
+      const body = document.querySelector('body');
+
+      if (modalEl) {
+        if (!sessionStorage.getItem('cookies')) {
+          modalEl.classList.add('active');
+          body.classList.add('no-scroll');
+        }
+
+        closeEl.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            modalEl.classList.remove('active');
+            body.classList.remove('no-scroll');
+          });
+        });
+        linksEl.forEach((link) => {
+          link.addEventListener('click', (e) => {
+            sessionStorage.setItem('cookies', 'cookies');
+
+            modalEl.classList.remove('active');
+            body.classList.remove('no-scroll');
+          });
+        });
+        modalEl.addEventListener('click', (e) => {
+          if (e.target === modalEl) {
+            modalEl.classList.remove('active');
+            body.classList.remove('no-scroll');
+          }
+        });
+      }
+    }
+    bindModal('.popup--start', '.popup__close', '.popup-item__link');
+  })();
 });
