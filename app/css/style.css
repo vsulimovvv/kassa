@@ -421,16 +421,13 @@ body.no-scroll {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -ms-grid-column-align: end;
-      justify-self: end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   text-decoration: none;
   color: var(--color-white);
   font-size: 14px;
   line-height: 1;
-  margin-left: auto;
 }
 @media (max-width: 991.98px) {
   .company {
@@ -1068,13 +1065,13 @@ body.no-scroll {
 .footer__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto 430px;
-  grid-template-columns: auto 430px;
-  gap: 80px;
+  -ms-grid-columns: auto 450px;
+  grid-template-columns: auto 450px;
+  gap: 70px;
 }
 @media (max-width: 1230px) {
   .footer__wrapper {
-    gap: calc(30px + 50 * (100vw - 991px) / 239);
+    gap: calc(30px + 40 * (100vw - 991px) / 239);
   }
 }
 @media (max-width: 991.98px) {
@@ -1258,6 +1255,7 @@ body.no-scroll {
 .footer .footer-contacts__btn {
   width: 140px;
   padding: 5px 10px;
+  padding-top: 7px;
   border-radius: 5px;
 }
 .footer .footer-contacts__text {
@@ -1303,12 +1301,9 @@ body.no-scroll {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 20px;
 }
 @media (max-width: 991.98px) {
@@ -1318,15 +1313,26 @@ body.no-scroll {
             align-items: flex-start;
   }
 }
-.footer .footer-partner__img {
+.footer .footer-partner__left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 10px;
 }
-.footer .footer-partner__img img {
+.footer .footer-partner__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+.footer .footer-partner__right img {
+  width: 200px;
   margin-left: 8px;
 }
 .footer .footer-partner a {
@@ -2251,6 +2257,18 @@ body.no-scroll {
 }
 .socials__link--tg {
   background-image: url("../img/socials/tg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.socials__link--wapp {
+  background-image: url("../img/socials/wapp.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.socials__link--vb {
+  background-image: url("../img/socials/vb.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
